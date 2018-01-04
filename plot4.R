@@ -20,19 +20,19 @@ createPlot4 <- function(){
   housePower <- readFile()
   
   png(file = "plot4.png")
-  
+  ##Divide the window
   par(mfrow= c(2,2))
-  
+  ## 1 plot
   plot(housePower$Date_Time,housePower$Global_active_power, type = "l", ylab = "Global Active Power", xlab = "")
-  
+  ## 2 plot
   plot(housePower$Date_Time,housePower$Voltage, type = "l", ylab = "Voltage", xlab = "datetime")
-  
+  ## 3 plot
   plot(housePower$Date_Time,housePower$Sub_metering_1, type = "l", ylab = "Energy sub melting", xlab = "")
   points(housePower$Date_Time, housePower$Sub_metering_2, type = "l", col = "Red")
   points(housePower$Date_Time, housePower$Sub_metering_3, type = "l", col = "Blue")
   
   legend("topright",lty=1, lwd=1, col = c("black","red","blue"), legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
-  
+  ## 4 plot
   plot(housePower$Date_Time,housePower$Global_reactive_power, type = "l", ylab = "Global_reactive_power", xlab = "datetime")
   dev.off()
 }
